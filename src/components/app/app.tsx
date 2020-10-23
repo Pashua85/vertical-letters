@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef, useLayoutEffect} from 'react';
 import './app.scss';
 
 type Letters = string[]
 
 const App: React.FC = () => {
   const [letters, setLetters] = useState<Letters>([]);
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   const keyDownHandler = (event: KeyboardEvent) => {
     if (/^[A-Za-zА-Яа-я]/.test(event.key) && event.key.length === 1) {
@@ -22,6 +23,12 @@ const App: React.FC = () => {
     })
   }, [])
 
+  useEffect(() => {
+    if (cursorRef !== null) {
+      cursorRef.current?.scrollIntoView({behavior: `smooth`});
+    }
+  })
+
   return (
     <div className="app">
       <p className="word-line">
@@ -31,7 +38,7 @@ const App: React.FC = () => {
           ))
         }
       </p>
-      <div className="cursor"></div>
+      <div className="cursor" ref={cursorRef}></div>
     </div>
   )
 };
