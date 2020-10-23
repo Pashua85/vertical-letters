@@ -1,7 +1,7 @@
 {
   "name": "vertical",
   "version": "0.1.0",
-  "hovepage": "http://Pashua85.github.io/vertical-letters",
+  "homepage": "http://Pashua85.github.io/vertical-letters",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
