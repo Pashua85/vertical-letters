@@ -8,7 +8,7 @@ const App: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
 
   const keyDownHandler = (event: KeyboardEvent) => {
-    if (/^[A-Za-zА-Яа-я]/.test(event.key) && event.key.length === 1) {
+    if (/^[A-Za-zА-Яа-яёЁ]/.test(event.key) && event.key.length === 1) {
       setLetters(prevState => [...prevState, event.key]);
     } else if (event.key === `Backspace`) {
       setLetters(prevState => [...prevState].slice(0, prevState.length - 1))
